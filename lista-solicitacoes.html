@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Solicitações - MCTRACKING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #ff6600;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>MCTRACKING</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Solicitar Envio</a></li>
+            <li><a href="#">Minhas Solicitações</a></li>
+            <li><a href="#">Relatórios</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Minhas Solicitações</h2>
+        <div class="card">
+            <h3>Histórico de Solicitações</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Destinatário</th>
+                        <th>Endereço</th>
+                        <th>Status</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>João Silva</td>
+                        <td>Rua A, 123, São Paulo</td>
+                        <td>Pendente</td>
+                        <td>11/08/2024</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Maria Souza</td>
+                        <td>Av. B, 456, Rio de Janeiro</td>
+                        <td>Em Trânsito</td>
+                        <td>10/08/2024</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Pedro Oliveira</td>
+                        <td>Rua C, 789, Curitiba</td>
+                        <td>Entregue</td>
+                        <td>09/08/2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
