@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Envio - MCTRACKING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>MCTRACKING</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Solicitar Envio</a></li>
+            <li><a href="#">Minhas Solicitações</a></li>
+            <li><a href="#">Relatórios</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Solicitar Envio</h2>
+        <div class="card">
+            <h3>Nova Solicitação de Envio</h3>
+            <form>
+                <div class="form-group">
+                    <label for="destinatario">Destinatário</label>
+                    <input type="text" id="destinatario" placeholder="Nome do destinatário" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" placeholder="Endereço completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipo-envio">Tipo de Envio</label>
+                    <select id="tipo-envio" required>
+                        <option value="padrao">Padrão</option>
+                        <option value="expresso">Expresso</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="peso">Peso (kg)</label>
+                    <input type="number" id="peso" placeholder="Peso do pacote" required>
+                </div>
+                <button type="submit">Solicitar Envio</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

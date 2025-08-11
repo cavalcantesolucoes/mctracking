@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - MCTRACKING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 270px; /* Para ajustar a margem após a sidebar */
+            overflow-y: auto;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .filters div {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .filters div:last-child {
+            margin-right: 0;
+        }
+        .filters label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .filters input, .filters select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #ff6600;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .chart-container .chart-wrapper {
+            flex: 1;
+            min-width: 300px;
+            margin: 10px;
+        }
+        canvas {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>MCTRACKING</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Solicitar Envio</a></li>
+            <li><a href="#">Minhas Solicitações</a></li>
+            <li><a href="#">Relatórios</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Relatórios</h2>
+        <div class="card">
+            <h3>Gerar Relatório</h3>
+            <div class="filters">
+                <div>
+                    <label for="data-inicio">Data de Início</label>
+                    <input type="date" id="data-inicio">
+                </div>
+                <div>
+                    <label for="data-fim">Data de Fim</label>
+                    <input type="date" id="data-fim">
+                </div>
+                <div>
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="todos">Todos</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="em-transito">Em Trânsito</option>
+                        <option value="entregue">Entregue</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tipo-relatorio">Tipo de Relatório</label>
+                    <select id="tipo-relatorio">
+                        <option value="geral">Geral</option>
+                        <option value="mensal">Mensal</option>
+                        <option value="anual">Anual</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button">Gerar Relatório</button>
+        </div>
+
+        <div class="card">
+            <h3>Resultados do Relatório</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Destinatário</th>
+                        <th>Endereço</th>
+                        <th>Status</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>João Silva</td>
+                        <td>Rua A, 123, São Paulo</td>
+                        <td>Pendente</td>
+                        <td>11/08/2024</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Maria Souza</td>
+                        <td>Av. B, 456, Rio de Janeiro</td>
+                        <td>Em Trânsito</td>
+                        <td>10/08/2024</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Pedro Oliveira</td>
+                        <td>Rua C, 789, Curitiba</td>
+                        <td>Entregue</td>
+                        <td>09/08/2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Análise Gráfica</h3>
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados fictícios para os gráficos
+        const labels = ['Pendente', 'Em Trânsito', 'Entregue'];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Número de Solicitações',
+                data: [12, 19, 7],
+                backgroundColor: ['#ff6600', '#ffcc00', '#00cc66']
+            }]
+        };
+
+        // Gráfico de Barras
+        const barChart = new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Pizza
+        const pieChart = new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Distribuição de Status',
+                    data: [12, 19, 7],
+                    backgroundColor: ['#ff6600', '#ffcc00', '#00cc66']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

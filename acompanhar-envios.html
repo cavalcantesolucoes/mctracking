@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhar Envios - MCTRACKING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #E70000;
+            color: white;
+            padding: 20px;
+        }
+        .sidebar img {
+            width: 100px; /* Ajuste conforme necessário */
+            margin-bottom: 20px;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar ul li a:hover {
+            background-color: #F6C800;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .status {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .status div {
+            flex: 1;
+            margin-right: 10px;
+            padding: 10px;
+            background-color: #ff6600;
+            color: white;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .status div:last-child {
+            margin-right: 0;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        .filter-container label {
+            margin-right: 10px;
+        }
+        .filter-container input, .filter-container select {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #E70000;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .button-container a {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: #E70000;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .button-container a:hover {
+            background-color: #d70000;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <img src="img/logo-mctracking.png" alt="MC Tracking Logo">
+        <h2>MCTRACKING</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Solicitar Envio</a></li>
+            <li><a href="#">Minhas Solicitações</a></li>
+            <li><a href="#">Relatórios</a></li>
+            <li><a href="#">Acompanhar Envios</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>Acompanhar Envios</h2>
+        <div class="status">
+            <div>Envios Pendentes: 10</div>
+            <div>Em Trânsito: 25</div>
+            <div>Entregues: 45</div>
+        </div>
+        <div class="filter-container">
+            <label for="statusFilter">Status:</label>
+            <select id="statusFilter">
+                <option value="">Todos</option>
+                <option value="pendente">Pendentes</option>
+                <option value="transito">Em Trânsito</option>
+                <option value="entregue">Entregues</option>
+            </select>
+            <label for="dateFilter">Data:</label>
+            <input type="date" id="dateFilter">
+            <button type="button">Filtrar</button>
+        </div>
+        <div class="card">
+            <h3>Lista de Envios</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Destinatário</th>
+                            <th>Status</th>
+                            <th>Data de Envio</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>João Silva</td>
+                            <td>Em Trânsito</td>
+                            <td>2024-08-01</td>
+                            <td><a href="#">Detalhes</a></td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Maria Oliveira</td>
+                            <td>Entregue</td>
+                            <td>2024-08-02</td>
+                            <td><a href="#">Detalhes</a></td>
+                        </tr>
+                        <!-- Adicione mais linhas conforme necessário -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="#">Dashboard</a>
+            <a href="#">Solicitar Envio</a>
+            <a href="#">Minhas Solicitações</a>
+            <a href="#">Relatórios</a>
+        </div>
+    </div>
+</body>
+</html>

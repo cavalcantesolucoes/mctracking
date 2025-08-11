@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MC Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F6C800;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #E70000;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        .login-container img {
+            width: 250px;
+            margin-bottom: 20px;
+        }
+        .login-container h1 {
+            color: white;
+            margin: 20px 0;
+        }
+        .login-container label {
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            background-color: #fff;
+            color: #333;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #F6C800;
+            color: #E70000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-container button:hover {
+            background-color: #e1b700;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="img/logo-mctracking.png" alt="MC Tracking Logo">
+            <form>
+            <label for="username">Usuário</label>
+            <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
